@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/stylesheets/style.css">
+    <title><%= title %></title>
+</head>
+<body>
+    <title><%= title %></title>
+
+    <form action="/new" method="POST">
+        <fieldset>
+            <legend>Dados Cadastrais</legend>
+            <p>
+                Nome: <input type="text" name="nome" value="<%= customer.nome %>" />
+            </p>
+            <p>
+                Idade: <input type="number" name="idade" value="<%= customer.idade %>">
+            </p>
+            <p>
+                Região: <input type="text" name="cidade" value="<%= customer.cidade %>">
+            </p>
+            <p>
+                <input type="submit" value="Salvar">
+                <a href="/">Cancelar</a>
+            </p>
+
+            <input type="hidden" name="id" value="<%= customer._id %>">
+        </fieldset>
+    </form>
+    <script>
+        if(window.location.search){
+            const error = window.location.search.split('=')[1];
+            alert(decodeURI(error));
+        }
+    </script>
+</body>
+</html>
