@@ -1,3 +1,4 @@
+const { response } = require('express');
 var express = require('express');
 var router = express.Router();
 const db = require("../db");
@@ -22,6 +23,14 @@ router.get('/edit/:customerId', function(req, res){
   
   db.findCustomer(id)
     .then(customer => res.render("customer", {title: "Editar Cliente", customer}))
+    .catch(error => console.error(error));
+});
+
+router.get('/delete/:customerId', function(req, res){
+  const id = req.params.customerId;
+
+  db.deleteCustomer(id)
+    .then(result => res.redirect("/"))
     .catch(error => console.error(error));
 });
 
