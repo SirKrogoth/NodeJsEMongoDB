@@ -1,0 +1,1 @@
+Instalado pacote para usar .env => npm install dotenv-safe
